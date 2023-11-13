@@ -7,6 +7,7 @@ import {
   TextInput,
   View,
   Linking,
+  ToastAndroid,
 } from "react-native";
 
 export default function App() {
@@ -16,33 +17,52 @@ export default function App() {
         style={styles.imageBackground}
         source={require("./assets/chef.jpg")}
       />
-      <SafeAreaView style={styles.safeAreaForm}>
-        <View style={ styles.containerTextInput } >
-          <Image
-          style={ styles.imageInput }
-          source={ require("./assets/user.png") } />
-          <TextInput style={ styles.textInput }
-          placeholder="Correo electronico"
-          ></TextInput>
+
+      <View style={styles.logoContainer}>
+        <Image source={require("./assets/logo.png")} style={styles.logoImage} />
+        <Text style={styles.logoText}>FOOD APP</Text>
+      </View>
+
+      <View style={styles.form}>
+
+        <View style={ styles.formInput } >
+      <Image
+      style={ styles.formIcon }
+      source={ require('./assets/email.png') }
+      />
+      <TextInput
+      style={ styles.formTextInput }
+      placeholder="Correo electronico"
+      keyboardType="email-address"
+      ></TextInput>
         </View>
 
-        <View style={ styles.containerTextInput } >
-          <Image
-          style={ styles.imageInput }
-          source={ require("./assets/email.png") } />
-          <TextInput style={ styles.textInput }
-          placeholder="Contraseña"
-          ></TextInput>
+        <View style={ styles.formInput } >
+      <Image
+      style={ styles.formIcon }
+      source={ require('./assets/password.png') }
+      />
+      <TextInput
+      style={ styles.formTextInput }
+      placeholder="Contraseña"
+      keyboardType="default"
+      secureTextEntry={ true }    
+      ></TextInput>
         </View>
 
-        {/* <Button style={styles.bottonForm} 
-        >Entrar</Button> */}
+      <View style={ {marginTop:30, marginLeft:20, marginRight:20} } >
+      <Button
+      color='orange'
+      title='ENTRAR'
+      onPress={ ()=> ToastAndroid.show('CLICK', ToastAndroid.LONG)}
+      />
+      </View>
+      <View style={ styles.formRegister } >
+        <Text>No tenes cuenta?</Text>
+        <Text style={ styles.formRegisterText } >Registrate</Text>
+      </View>
+      </View>
 
-        <View>
-          <Text>No tenes cue</Text>
-          {/* <Linking></Linking> */}
-        </View>
-      </SafeAreaView>
     </View>
   );
 }
@@ -54,34 +74,62 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     width: "100%",
-    height: "70%",
+    height: "100%",
+    bottom: "30%",
   },
-  safeAreaForm: {
-    backgroundColor: "#fff",
-    width:'80%',
-    height:'100%'
+  form: {
+    width: "100%",
+    height: "40%",
+    backgroundColor: "white",
+    position: "absolute",
+    bottom: 0,
+    borderTopLeftRadius: 30,
+    borderTopRightRadius: 30,
   },
-  imageInput:{
-    width: 25,
-    height: 25,
-    marginLeft:20,
-    marginTop:20,
-    marginBottom:20
+  logoContainer: {
+    position: "absolute",
+    marginLeft: "10%",
+    marginTop: "25%",
   },
-  containerTextInput:{
-    display:'flex',
-    flexDirection:'row',
-    marginTop:5
+  logoImage: {
+    width: 100,
+    height: 100,
+    alignSelf: "center",
   },
-  textInput:{
-    height: 40,
-    width:'95%',
-    margin: 8,
+  logoText: {
+    alignSelf: "center",
+    top: 10,
+    color: "orange",
+  },
+  formTextInput:{
+    flex:1,
     borderBottomWidth: 1,
-    padding: 10,
-    
+    borderBottomColor:'#AAAAAA'
   },
-  bottonForm:{
+  formInput:{
+    flexDirection: 'row',
+    marginTop:40,
+    paddingLeft:20,
+    paddingRight:20,
 
+  },
+  formIcon:{
+    width:25,
+    height:25,
+    marginRight:15
+  },
+  formRegister:{
+    flexDirection:'row',
+    justifyContent: 'center',
+    marginTop:20
+  },
+  formRegisterText:{
+    fontStyle:'italic',
+    color:'orange',
+    borderBottomWidth:1,
+    borderBottomColor: 'orange',
+    fontWeight:'bold',
+    marginLeft:10,
+    
   }
 });
