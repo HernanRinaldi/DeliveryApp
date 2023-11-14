@@ -4,9 +4,11 @@ import {
   StyleSheet,
   Text,
   TextInput,
+  ToastAndroid,
   View,
 } from "react-native";
 import LoginButton from "./src/components/LoginButton";
+import { COLORS } from "./src/theme/globals";
 
 export default function App() {
   return (
@@ -50,7 +52,8 @@ export default function App() {
 
       <View style={ {marginTop:30, marginLeft:20, marginRight:20} } >
       <LoginButton
-      
+      text="ENTRAR"
+      onPress={ ()=> ToastAndroid.show( 'Ingreso exitoso!!', 2000 ) }
       />
       </View>
       <View style={ styles.formRegister } >
