@@ -8,10 +8,15 @@ import {
     View,
   } from "react-native";
 import LoginButton from '../../components/LoginButton';
+import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../../App';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-
-const HomeScreen = () => {
+const HomeScreen = ( ) => {
   
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
     return (
     <View style={styles.container}>
     <Image
@@ -59,7 +64,11 @@ const HomeScreen = () => {
     </View>
     <View style={ styles.formRegister } >
       <Text>No tenes cuenta?</Text>
+      <TouchableOpacity onPress={ ()=> navigation.navigate( 'HomeScreen' ) } >
       <Text style={ styles.formRegisterText } >Registrate</Text>
+      </TouchableOpacity>
+
+
     </View>
     </View>
 
