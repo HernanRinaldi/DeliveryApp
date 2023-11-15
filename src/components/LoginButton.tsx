@@ -3,15 +3,14 @@ import { Text, TouchableOpacity, StyleSheet } from "react-native";
 import { COLORS } from "../theme/globals";
 
 interface PropsButton {
-    text: string,
-    onPress: ()=>void
-    
+  text: string;
+  onPress: () => void;
 }
 
-const LoginButton = ( { text, onPress }: PropsButton ) => {
+const LoginButton = ({ text, onPress }: PropsButton) => {
   return (
     <TouchableOpacity onPress={() => onPress()} style={styles.loginButton}>
-      <Text style={styles.textButton}> { text } </Text>
+      <Text style={styles.textButton}> {text} </Text>
     </TouchableOpacity>
   );
 };
