@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   View,
@@ -11,6 +11,16 @@ import {
 import LoginButton from "../../components/LoginButton";
 
 const RegisterScreen = () => {
+
+const [input, setinput] = useState({
+  name:'',
+  lastName:'',
+  email:'',
+  telephone:'',
+  password:'',
+  confirm_password:'',
+})
+
   return (
     <View style={styles.container}>
       <Image
@@ -34,6 +44,7 @@ const RegisterScreen = () => {
             style={styles.formTextInput}
             placeholder="Nombres"
             keyboardType="email-address"
+            value={ input.name }
           ></TextInput>
         </View>
 
@@ -46,6 +57,7 @@ const RegisterScreen = () => {
             style={styles.formTextInput}
             placeholder="Apellidos"
             keyboardType="default"
+            value={ input.lastName }
           ></TextInput>
         </View>
         <View style={styles.formInput}>
@@ -57,6 +69,7 @@ const RegisterScreen = () => {
             style={styles.formTextInput}
             placeholder="Correo electronico"
             keyboardType="email-address"
+            value={ input.email }
           ></TextInput>
         </View>
 
@@ -69,6 +82,7 @@ const RegisterScreen = () => {
             style={styles.formTextInput}
             placeholder="Telefono"
             keyboardType="numeric"
+            value={ input.telephone }
           ></TextInput>
         </View>
         <View style={styles.formInput}>
@@ -80,6 +94,7 @@ const RegisterScreen = () => {
             style={styles.formTextInput}
             placeholder="Contraseña"
             secureTextEntry={true}
+            value={ input.password }
           ></TextInput>
         </View>
 
@@ -93,6 +108,7 @@ const RegisterScreen = () => {
             placeholder="Confirmar Contraseña"
             keyboardType="default"
             secureTextEntry={true}
+            value={ input.confirm_password }
           ></TextInput>
         </View>
         <View style={{ marginTop: 30, marginLeft: 20, marginRight: 20 }}>
