@@ -12,6 +12,7 @@ import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { COLORS } from '../../theme/globals';
 
 const HomeScreen = ( ) => {
   
@@ -26,7 +27,7 @@ const HomeScreen = ( ) => {
 
     <View style={styles.logoContainer}>
       <Image source={require("../../../assets/logo.png")} style={styles.logoImage} />
-      <Text style={styles.logoText}>FOOD APP</Text>
+      <Text style={styles.logoText}>TUS COMIDAS</Text>
     </View>
 
     <View style={styles.form}>
@@ -64,7 +65,7 @@ const HomeScreen = ( ) => {
     </View>
     <View style={ styles.formRegister } >
       <Text>No tenes cuenta?</Text>
-      <TouchableOpacity onPress={ ()=> navigation.navigate( 'HomeScreen' ) } >
+      <TouchableOpacity onPress={ ()=> navigation.navigate('RegisterScreen') } >
       <Text style={ styles.formRegisterText } >Registrate</Text>
       </TouchableOpacity>
 
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
     logoText: {
       alignSelf: "center",
       top: 10,
-      color: "orange",
+      color: COLORS.text,
     },
     formTextInput:{
       flex:1,
@@ -121,7 +122,7 @@ const styles = StyleSheet.create({
       marginTop:40,
       paddingLeft:20,
       paddingRight:20,
-  
+      
     },
     formIcon:{
       width:25,
