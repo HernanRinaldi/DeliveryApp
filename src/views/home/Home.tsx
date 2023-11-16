@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
     Image,
     StyleSheet,
@@ -17,6 +17,8 @@ import { COLORS } from '../../theme/globals';
 const HomeScreen = ( ) => {
   
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
     return (
     <View style={styles.container}>
@@ -41,6 +43,8 @@ const HomeScreen = ( ) => {
     style={ styles.formTextInput }
     placeholder="Correo electronico"
     keyboardType="email-address"
+    value={ email }
+    onChangeText={  text => setEmail(text)  }
     ></TextInput>
       </View>
 
@@ -53,14 +57,16 @@ const HomeScreen = ( ) => {
     style={ styles.formTextInput }
     placeholder="Contraseña"
     keyboardType="default"
-    secureTextEntry={ true }    
+    secureTextEntry={ true }
+    value={ password }
+    onChangeText={  text => setPassword(text)  }   
     ></TextInput>
       </View>
 
     <View style={ {marginTop:30, marginLeft:20, marginRight:20} } >
     <LoginButton
     text="ENTRAR"
-    onPress={ ()=> ToastAndroid.show( 'Ingreso exitoso!!', 2000 ) }
+    onPress={ ()=> console.log( email,  password )}
     />
     </View>
     <View style={ styles.formRegister } >
