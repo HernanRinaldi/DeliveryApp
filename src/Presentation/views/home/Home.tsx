@@ -10,7 +10,7 @@ import {
 import LoginButton from '../../components/LoginButton';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../../../App';
+import { RootStackParamList } from '../../../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { COLORS } from '../../theme/globals';
 
@@ -24,11 +24,11 @@ const HomeScreen = ( ) => {
     <View style={styles.container}>
     <Image
       style={styles.imageBackground}
-      source={require("../../../assets/chef.jpg")}
+      source={require("../../../../assets/chef.png")} 
     />
 
     <View style={styles.logoContainer}>
-      <Image source={require("../../../assets/logo.png")} style={styles.logoImage} />
+      <Image source={require("../../../../assets/logo.png")} style={styles.logoImage} />
       <Text style={styles.logoText}>TUS COMIDAS</Text>
     </View>
 
@@ -37,7 +37,7 @@ const HomeScreen = ( ) => {
       <View style={ styles.formInput } >
     <Image
     style={ styles.formIcon }
-    source={ require('../../../assets/email.png') }
+    source={ require('../../../../assets/email.png') }
     />
     <TextInput
     style={ styles.formTextInput }
@@ -51,7 +51,7 @@ const HomeScreen = ( ) => {
       <View style={ styles.formInput } >
     <Image
     style={ styles.formIcon }
-    source={ require('../../../assets/password.png') }
+    source={ require('../../../../assets/password.png') }
     />
     <TextInput
     style={ styles.formTextInput }
