@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Image,
     StyleSheet,
@@ -13,12 +13,13 @@ import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { COLORS } from '../../theme/globals';
+import HomeViewModel from './ViewModel';
 
 const HomeScreen = ( ) => {
   
+  const { email, password, onChange } = HomeViewModel();
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
 
     return (
     <View style={styles.container}>
@@ -44,7 +45,7 @@ const HomeScreen = ( ) => {
     placeholder="Correo electronico"
     keyboardType="email-address"
     value={ email }
-    onChangeText={  text => setEmail(text)  }
+    onChangeText={  text => HomeViewModel()  }
     ></TextInput>
       </View>
 
@@ -59,7 +60,7 @@ const HomeScreen = ( ) => {
     keyboardType="default"
     secureTextEntry={ true }
     value={ password }
-    onChangeText={  text => setPassword(text)  }   
+    onChangeText={  text => HomeViewModel()  }   
     ></TextInput>
       </View>
 
