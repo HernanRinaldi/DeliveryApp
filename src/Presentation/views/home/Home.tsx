@@ -13,11 +13,11 @@ import { useNavigation } from '@react-navigation/native';
 import { RootStackParamList } from '../../../../App';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { COLORS } from '../../theme/globals';
-import HomeViewModel from './ViewModel';
+import useViewModel from './ViewModel';
 
 const HomeScreen = ( ) => {
   
-  const { email, password, onChange } = HomeViewModel();
+  const { email, password, onChange } = useViewModel();
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
 
@@ -45,7 +45,7 @@ const HomeScreen = ( ) => {
     placeholder="Correo electronico"
     keyboardType="email-address"
     value={ email }
-    onChangeText={  text => HomeViewModel()  }
+    onChangeText={ text => onChange( 'email', text ) }
     ></TextInput>
       </View>
 
@@ -60,7 +60,7 @@ const HomeScreen = ( ) => {
     keyboardType="default"
     secureTextEntry={ true }
     value={ password }
-    onChangeText={  text => HomeViewModel()  }   
+    onChangeText={  text => onChange( 'password', text ) }   
     ></TextInput>
       </View>
 
