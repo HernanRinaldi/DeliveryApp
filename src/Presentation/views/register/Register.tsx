@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import {
   View,
@@ -9,17 +9,20 @@ import {
   StyleSheet,
 } from "react-native";
 import LoginButton from "../../components/LoginButton";
+import useViewModel from "../register/ViewModel";
+import CustomTextInput from "../../components/CustomTextInput";
+
 
 const RegisterScreen = () => {
-
-const [input, setinput] = useState({
-  name:'',
-  lastName:'',
-  email:'',
-  telephone:'',
-  password:'',
-  confirm_password:'',
-})
+  const { 
+    name, 
+    lastName, 
+    email, 
+    telephone,
+    password, 
+    confirm_password,
+    onChange
+   } =  useViewModel();
 
   return (
     <View style={styles.container}>
@@ -35,82 +38,68 @@ const [input, setinput] = useState({
         <Text style={styles.logoText}>SELECIONA UNA IMAGEN</Text>
       </View>
       <View style={styles.form}>
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/user.png")}
-          />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Nombres"
-            keyboardType="email-address"
-            value={ input.name }
-          ></TextInput>
-        </View>
+        
 
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/my_user.png")}
+          <CustomTextInput
+          image={require("../../../../assets/user.png")}
+          placeholder="Nombres"
+          keyboardType="default"
+          value={name}
+          onChangeText={onChange}
+          secureTextEntry={false}
+          Property="name"
           />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Apellidos"
-            keyboardType="default"
-            value={ input.lastName }
-          ></TextInput>
-        </View>
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/email.png")}
-          />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Correo electronico"
-            keyboardType="email-address"
-            value={ input.email }
-          ></TextInput>
-        </View>
 
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/phone.png")}
+          <CustomTextInput
+          image={require("../../../../assets/my_user.png")}
+          placeholder="Apellidos"
+          keyboardType="default"
+          value={lastName}
+          onChangeText={onChange}
+          secureTextEntry={false}
+          Property="lastName"
           />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Telefono"
-            keyboardType="numeric"
-            value={ input.telephone }
-          ></TextInput>
-        </View>
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/password.png")}
-          />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Contraseña"
-            secureTextEntry={true}
-            value={ input.password }
-          ></TextInput>
-        </View>
 
-        <View style={styles.formInput}>
-          <Image
-            style={styles.formIcon}
-            source={require("../../../../assets/confirm_password.png")}
+          <CustomTextInput
+          image={require("../../../../assets/email.png")}
+          placeholder="Correo electronico"
+          keyboardType="email-address"
+          value={email}
+          onChangeText={onChange}
+          secureTextEntry={false}
+          Property="email"
           />
-          <TextInput
-            style={styles.formTextInput}
-            placeholder="Confirmar Contraseña"
-            keyboardType="default"
-            secureTextEntry={true}
-            value={ input.confirm_password }
-          ></TextInput>
-        </View>
+
+          <CustomTextInput
+          image={require("../../../../assets/phone.png")}
+          placeholder="Telefono"
+          keyboardType="numeric"
+          value={telephone}
+          onChangeText={onChange}
+          secureTextEntry={false}
+          Property="telephone"
+          />
+
+          <CustomTextInput
+          image={require("../../../../assets/password.png")}
+          placeholder="Contraseña"
+          keyboardType="numeric"
+          value={password}
+          onChangeText={onChange}
+          secureTextEntry={true}
+          Property="password"
+          />
+
+          <CustomTextInput
+          image={require("../../../../assets/confirm_password.png")}
+          placeholder="Confirmar Contraseña"
+          keyboardType="default"
+          value={confirm_password}
+          onChangeText={onChange}
+          secureTextEntry={true}
+          Property="confirm_password"
+          />
+
         <View style={{ marginTop: 30, marginLeft: 20, marginRight: 20 }}>
           <LoginButton
             text="REGISTRATE"
@@ -151,7 +140,7 @@ const styles = StyleSheet.create({
     marginTop: 40,
     paddingLeft: 20,
     paddingRight: 20,
-    marginBottom:-7
+    marginBottom: -7,
   },
   formIcon: {
     width: 25,
