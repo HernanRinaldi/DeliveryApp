@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const RegisterViewModel = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  const [values, setValues] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    telephone: "",
+    password: "",
+    confirm_password: "",
+  });
+
+  const onChange = (property: string, value: any) => {
+    setValues({ ...values, [property]: value });
+  };
+
+  return {
+    ...values,
+    onChange,
+  };
+};
 
 export default RegisterViewModel;
