@@ -3,15 +3,13 @@ import React from "react";
 import {
   View,
   Text,
-  Image,
-  TextInput,
-  ToastAndroid,
-  StyleSheet,
+  Image
 } from "react-native";
 import LoginButton from "../../components/LoginButton";
 import useViewModel from "../register/ViewModel";
 import CustomTextInput from "../../components/CustomTextInput";
 import styles from "./Styles";
+import Register from "../register/ViewModel";
 
 const RegisterScreen = () => {
   const { 
@@ -103,7 +101,7 @@ const RegisterScreen = () => {
         <View style={{ marginTop: 30, marginLeft: 20, marginRight: 20 }}>
           <LoginButton
             text="REGISTRATE"
-            onPress={() => ToastAndroid.show("Registro exitoso!!", 2000)}
+            onPress={() => Register()}
           />
         </View>
       </View>
