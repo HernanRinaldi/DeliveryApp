@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
       height: "70%",
       backgroundColor: "white",
       position: "absolute",
-      bottom: 0,
+      bottom: 40,
       borderTopLeftRadius: 30,
       borderTopRightRadius: 30,
     },
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     logoContainer: {
       position: "absolute",
       alignSelf: "center",
-      top: "5%",
+      top: 15,
+      marginBottom: 10,
     },
     logoImage: {
       width: 100,
