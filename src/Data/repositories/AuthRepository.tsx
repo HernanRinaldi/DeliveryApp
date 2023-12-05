@@ -7,7 +7,6 @@ export class AutRepositoryImpl implements AuthRepository {
     async register(user: user){
         try {
             const response = await ApiDelivery.post<ResponseApiDelivery>('/users/create', user);
-            console.log('RESPONSE: ', JSON.stringify(response.data));
             return Promise.resolve({
                 error: undefined,
                 result: response.data

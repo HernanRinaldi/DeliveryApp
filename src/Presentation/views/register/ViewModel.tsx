@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ApiDelivery } from "../../../Data/sources/remote/api/ApiDelivery";
+import  { useState } from "react";
+import { RegisterAuthUseCase } from "../../../Domain/useCases/auth/RegisterAuth";
 
 const RegisterViewModel = () => {
   const [values, setValues] = useState({
@@ -17,9 +17,9 @@ const RegisterViewModel = () => {
 
   const register = async( )=>{
    
-    const response = await ApiDelivery.post('/users/create', values)
-    console.log('RESPUESTA: ', JSON.stringify(response))
-
+    const { result, error } = await RegisterAuthUseCase(values);
+    console.log('RESPUESTA: ', JSON.stringify(result));
+    console.log('RESPUESTA: ', error);
   }
 
   return {
