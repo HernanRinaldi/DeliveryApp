@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
     form: {
       width: "100%",
-      height: "70%",
+      height: "72%",
       backgroundColor: "white",
       position: "absolute",
       bottom: 40,
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
       marginTop: 40,
       paddingLeft: 20,
       paddingRight: 20,
-      marginBottom: -7,
     },
     formIcon: {
       width: 25,
