@@ -3,7 +3,8 @@ import React from "react";
 import {
   View,
   Text,
-  Image
+  Image,
+  ScrollView
 } from "react-native";
 import LoginButton from "../../components/LoginButton";
 import useViewModel from "../register/ViewModel";
@@ -35,7 +36,10 @@ const RegisterScreen = () => {
         />
         <Text style={styles.logoText}>SELECIONA UNA IMAGEN</Text>
       </View>
+
+
       <View style={styles.form}>
+      <ScrollView>
         
 
           <CustomTextInput
@@ -104,6 +108,7 @@ const RegisterScreen = () => {
             onPress={() => Register()}
           />
         </View>
+      </ScrollView>
       </View>
     </View>
   );
