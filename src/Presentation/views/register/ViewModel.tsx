@@ -17,9 +17,9 @@ const RegisterViewModel = () => {
 
   const register = async( )=>{
    
-    const { result, error } = await RegisterAuthUseCase(values);
-    console.log('RESPUESTA: ', JSON.stringify(result));
-    console.log('RESPUESTA: ', error);
+    const response = await RegisterAuthUseCase(values);
+    console.log('RESPONSE: ', JSON.stringify(response));
+   
   }
 
   return {
