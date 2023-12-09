@@ -27,24 +27,31 @@ const RegisterViewModel = () => {
   const isValidForm = ():boolean => {
     if( values.name === '' ){
       setErrorMessage('Ingresa tu nombre');
+      return false;
     }
     if( values.lastName === '' ){
       setErrorMessage('Ingresa tu apellido');
+      return false;
     }
     if( values.email === '' ){
       setErrorMessage('Ingresa tu correo electronico');
+      return false;
     }
     if( values.telephone === '' ){
       setErrorMessage('Ingresa tu telefono');
+      return false;
     }
     if( values.password === '' ){
       setErrorMessage('Ingresa tu contraseña');
+      return false;
     }
     if( values.confirm_password === '' ){
       setErrorMessage('Confirma tu contraseña');
+      return false;
     }
     if( values.password !== values.confirm_password ){
       setErrorMessage('Confirma tu contraseña correctamente');
+      return false;
     }
     
     return true;
