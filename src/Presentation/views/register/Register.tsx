@@ -1,10 +1,11 @@
-import React from "react";
+import React,{ useEffect }  from "react";
 
 import {
   View,
   Text,
   Image,
-  ScrollView
+  ScrollView,
+  ToastAndroid
 } from "react-native";
 import LoginButton from "../../components/LoginButton";
 import useViewModel from "../register/ViewModel";
@@ -20,8 +21,16 @@ const RegisterScreen = () => {
     telephone,
     password, 
     confirm_password,
-    onChange
+    errorMessage,
+    onChange,
    } =  useViewModel();
+
+   useEffect(() => {
+    if ( errorMessage != '') {
+      ToastAndroid.show(errorMessage, ToastAndroid.LONG)
+    }
+   }, [errorMessage])
+   
 
   return (
     <View style={styles.container}>
