@@ -2,7 +2,6 @@ import { useState } from "react";
 import { RegisterAuthUseCase } from "../../../Domain/useCases/auth/RegisterAuth";
 
 const RegisterViewModel = () => {
-  const [validateForm, setValidateForm] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [values, setValues] = useState({
     name: "",
