@@ -12,9 +12,9 @@ const HomeViewModel = () => {
     setValues({ ...values, [property]: value });
   };
 
-  const login = async (email: string, passport: string) => {
+  const login = async () => {
     if (isValidForm()) {
-      const resp = await LoginAuthUseCase(email, passport);
+      const resp = await LoginAuthUseCase(values.email, values.password);
       console.log(JSON.stringify(resp));
     }
   };
