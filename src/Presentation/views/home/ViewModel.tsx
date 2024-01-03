@@ -21,11 +21,11 @@ const HomeViewModel = () => {
 
   const isValidForm = (): boolean => {
     if (values.email == "") {
-      setErrorMessage("Agrege un email");
+      setErrorMessage("Agregue un email");
       return false;
     }
     if (values.password == "") {
-      setErrorMessage("Agrege un password");
+      setErrorMessage("Agregue un password");
       return false;
     }
     return true;
