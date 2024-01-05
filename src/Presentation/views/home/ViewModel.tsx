@@ -21,7 +21,7 @@ const HomeViewModel = () => {
 
   const isValidForm = (): boolean => {
     if (values.email == "") {
-      setErrorMessage("Agregue un email");
+      setErrorMessage("Agregue un correo electronico");
       return false;
     }
     if (values.password == "") {
