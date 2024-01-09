@@ -59,8 +59,8 @@ const HomeScreen = () => {
 
         <View style={{ marginTop: 30, marginLeft: 20, marginRight: 20 }}>
           <LoginButton
-            text="ENTRAR"
-            onPress={ ()=> {}  }
+            text="LOGIN"
+            onPress={ ()=> login()  }
           />
         </View>
         <View style={styles.formRegister}>
