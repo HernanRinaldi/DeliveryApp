@@ -7,4 +7,5 @@ export interface user {
     telephone: string;
     password: string;
     confirm_password: string;
+    session_token?: string;
 }

@@ -16,6 +16,9 @@ const HomeViewModel = () => {
     if (isValidForm()) {
       const resp = await LoginAuthUseCase(values.email, values.password);
       console.log(JSON.stringify(resp));
+      if(!resp.success){
+        setErrorMessage(resp.message);
+      }
     }
   };
 
